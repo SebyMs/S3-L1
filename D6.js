@@ -31,7 +31,7 @@ array = randArray();
 */
 numbers = [1, 2, 3, 4, 56, 7, 8, 45, 54, 5];
 const arrayPari = function (array) {
-  let arrayPari = array.filter((array) => array % 2 === 0);
+  let arrayPari = array.filter((element) => element % 2 === 0);
   console.log(arrayPari);
 };
 arrayPari(array);
@@ -40,8 +40,8 @@ arrayPari(array);
 */
 const somma = function (array) {
   let somma = 0;
-  array.forEach((array) => {
-    somma += array;
+  array.forEach((element) => {
+    somma += element;
   });
   console.log(somma);
 };
@@ -58,7 +58,7 @@ reduce(array);
   Scrivi una funzione che, dato un array di soli numeri e un numero n come parametri, ritorni un secondo array con tutti i valori del precedente incrementati di n
 */
 const incremento = (array, n) => {
-  let arrayIncremento = array.map((x) => x + n);
+  let arrayIncremento = array.map((element) => element + n);
   console.log(arrayIncremento);
 };
 incremento(array, 10);
@@ -68,7 +68,7 @@ incremento(array, 10);
 */
 stringhe = ["ciao", "supercalifragi", "listichespiralidose", "banana", "pera", "arancia"];
 const lunghezza = (array) => {
-  let lunghezzeStr = array.map((x) => x.length);
+  let lunghezzeStr = array.map((element) => element.length);
   console.log(lunghezzeStr);
 };
 lunghezza(stringhe);
@@ -202,10 +202,10 @@ const movies = [
 const filmPiúVecchio = (array) => {
   datariferimento = 2000;
   film = [];
-  array.forEach((x) => {
-    if (parseInt(x.Year) < datariferimento) {
-      datariferimento = x.Year;
-      film = x;
+  array.forEach((element) => {
+    if (parseInt(element.Year) < datariferimento) {
+      datariferimento = element.Year;
+      film = element;
     }
   });
   console.log(datariferimento, film);
@@ -220,7 +220,7 @@ numeroFilm(movies);
   Scrivi una funzione per creare un array con solamente i titoli dei film contenuti nell'array fornito.
 */
 const titoli = (array) => {
-  let titoliFilm = array.map((x) => x.Title);
+  let titoliFilm = array.map((element) => element.Title);
   console.log(titoliFilm);
 };
 titoli(movies);
@@ -228,7 +228,7 @@ titoli(movies);
   Scrivi una funzione per ottenere dall'array fornito solamente i film usciti nel millennio corrente.
 */
 const filmUscitiNelMillenio = (array) => {
-  let millenio = array.filter((x) => parseInt(x.Year) >= 2000);
+  let millenio = array.filter((element) => parseInt(element.Year) >= 2000);
   console.log(millenio);
   return millenio;
 };
@@ -237,26 +237,26 @@ filmUscitiNelMillenio(movies);
   Scrivi una funzione per calcolare la somma di tutti gli anni in cui sono stati prodotti i film contenuti nell'array fornito.!!!!!!!!!
 */
 const addizioneAnniFilm = (array) => {
-  let anniFilm = array.map((x) => parseInt(x.Year));
+  let anniFilm = array.map((element) => parseInt(element.Year));
   const sumWithInitial = anniFilm.reduce((accumulator, currentValue) => accumulator + currentValue);
-  // const sumWithInitial = array.reduce((array.Year, accumulator) => array.Year + currentValue);
+  // const sumWithInitial = array.reduce((accumulator, currentValue) => accumulator + currentValue);
   console.log(sumWithInitial);
 };
 addizioneAnniFilm(movies);
 /* ESERCIZIO 14 (find)
   Scrivi una funzione per ottenere dall'array fornito uno specifico film (la funzione riceve un imdbID come parametro).
 */
-const findFilm = (movies, n) => {
-  const found = movies.find((element) => element.imdbID === n);
+const findFilm = (array, n) => {
+  const found = array.find((element) => element.imdbID === n);
   console.log(found);
 };
 findFilm(movies, "tt4154796");
 /* ESERCIZIO 15 (findIndex)
   Scrivi una funzione per ottenere dall'array fornito l'indice del primo film uscito nell'anno fornito come parametro.
 */
-const firstFilm = (movies, n) => {
-  const isFirstfilm = (element) => element.Year === n;
-  let index = movies.findIndex(isFirstfilm);
-  console.log(movies[index]);
+const firstFilm = (array, n) => {
+  // const isFirstfilm = (element) => element.Year === n;
+  let index = array.findIndex((element) => element.Year === n);
+  console.log(array[index]);
 };
 firstFilm(movies, "2005");
